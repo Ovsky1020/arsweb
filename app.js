@@ -338,7 +338,7 @@ function blockEl(b, num) {
         inner.appendChild(inp);
         const hint = document.createElement('div');
         hint.className = 'img-hint';
-        hint.textContent = 'También puedes arrastrar texto: pegue cualquier enlace directo a una imagen (jpg, png, gif…).';
+        hint.textContent = 'Pega un enlace directo a una imagen (.jpg, .png, .gif…) y pulsa Enter. Pulsa la imagen para cambiarla.';
         inner.appendChild(hint);
       }
       break;
@@ -1003,6 +1003,7 @@ function bindEvents() {
     if (!p) return;
     if (t.classList.contains('ce-title')) {
       p.title = t.innerText.replace(/\n/g, ' ').replace(/\u00a0/g, ' ');
+      if (!p.title) t.innerHTML = ''; // mantiene :empty para el placeholder
       p.updatedAt = Date.now();
       scheduleSave();
       renderTopbar();
@@ -1292,7 +1293,7 @@ function bindEvents() {
   });
   document.addEventListener('mousedown', (e) => {
     if (e.target.closest('#slash-menu')) e.preventDefault();
-    if (!e.target.closest('#handle-menu')) closeHandleMenu();
+    if (!e.target.closest('#handle-menu') && !e.target.closest('.block-handle')) closeHandleMenu();
     if (!e.target.closest('#top-menu') && !e.target.closest('#btn-topmenu')) closeTopMenu();
     if (!e.target.closest('#emoji-picker') && !e.target.closest('#btn-icon')) closeEmoji();
     if (!e.target.closest('#page-menu') && !e.target.closest('[data-pagemenu]')) closePageMenu();
