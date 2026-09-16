@@ -1,0 +1,14 @@
+{
+  "name": "Mis notas — espacio gratuito",
+  "short_name": "Mis notas",
+  "description": "Un espacio de notas estilo Notion. 100% gratuito, sin cuentas, funciona en móvil y ordenador.",
+  "lang": "es",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
